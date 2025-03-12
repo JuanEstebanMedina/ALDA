@@ -1,4 +1,4 @@
-# Binnacle
+# Code Journal
 
 ## Introduction
 This document serves as a detailed record of every step taken during the project. It includes descriptions of tasks, decisions made, and any issues encountered.
@@ -14,7 +14,7 @@ Every Python function should have its algorithmic complexity in time and space i
 ### Tasks Completed
 - Task 1: Initialize the project.
 
-The first thing I should do, is verify that I have the correct `python` version
+The first thing I should do is verify that I have the correct `python` version
 ```sh
 python --version  # Example output: Python 3.11.9
 ```
@@ -25,18 +25,17 @@ pip install virtualenv
 ```
 
 Verify if `virtualenv` is correctly installed
-
 ```sh
 python -m virtualenv --version  
 # Example output: virtualenv 20.29.2
 ```
 
-Create a virtual enviroment using `virtualenv`
+Create a virtual environment using `virtualenv`
 ```sh
-python -m virtualenv env  #Creates "env" folder
+python -m virtualenv env  # Creates "env" folder
 ```
 
-Activate the virtual enviroment
+Activate the virtual environment
 ```sh
 .\env\Scripts\activate
 ```
@@ -46,26 +45,27 @@ Now, I can add all dependencies related to the project
 pip install pandas black numpy matplotlib pytest coverage
 ```
 
-Also, I had to instal Anaconda and on the `Anaconda Prompt` use
+Also, I had to install Anaconda and on the `Anaconda Prompt` use
 ```sh
 conda install ipykernel
 ```
 
+To format the code with the Black library, use
+```sh
+black .
+```
 
-- Task 2: Description of the task.
-
-### Decisions Made
-- Decision 1: Description of the decision.
-- Decision 2: Description of the decision.
-
-### Issues Encountered
-- Issue 1: Not Understanding of the step by step need it to progress in the project.
-- Issue 2: Description of the issue.
+#### *Here concludes the project structure creation*
 
 ## Day 2
 ### Tasks Completed
-- Task 1: Description of the task.
-- Task 2: Description of the task.
+- Task 1: Generate random data module in Python and test it
+
+First thing to do is create the files `generator.py` and `test_generator.py` in their respective subdirectories.
+
+To follow the TDD methodology, it is important to create the respective test before the actual implementation.
+
+Once the tests are completed, the next step is to implement the functionality and ensure that all tests pass.
 
 ### Decisions Made
 - Decision 1: Description of the decision.
