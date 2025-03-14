@@ -20,6 +20,10 @@ def random_string_from_file(filename):
     return random.choice([line.strip() for line in lines if line.strip()])
 
 
+def random_list_of_ids(size=5, start=1000000, end=99999999):
+    return [random.randint(start, end) for _ in range(size)]
+
+
 def random_set_of_ids(size=5, start=1000000, end=99999999):
     return {random.randint(start, end) for _ in range(size)}
 

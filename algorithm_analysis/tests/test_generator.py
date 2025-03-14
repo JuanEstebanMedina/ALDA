@@ -24,13 +24,20 @@ def test_random_string_from_file(tmp_path):
     rand_str = generator.random_string_from_file(str(file_path))
     assert rand_str in ["apple", "banana", "cherry"]
 
-    with pytest.raises(FileNotFoundError):
-        generator.random_string_from_file("not_existing_file.py")
-
 
 def test_random_string_from_nonexistent_file():
     with pytest.raises(FileNotFoundError):
         generator.random_string_from_file("nonexistent_file.txt")
+
+
+def test_random_list_of_ids():
+    ids = generator.random_list_of_ids(10)
+    assert isinstance(ids, list)
+    assert len(ids) == 10
+
+    for id_ in ids:
+        assert isinstance(id_, int)
+        assert 1000000 <= id_ <= 99999999
 
 
 def test_random_set_of_ids():
