@@ -1,5 +1,10 @@
 import pytest
-from experiments.sorting import bubble_sort, insertion_sort, quick_sort
+from algorithm_analysis.algorithms.sorting import (
+    bubble_sort,
+    insertion_sort,
+    quick_sort,
+)
+
 
 @pytest.mark.parametrize("sorting_function", [bubble_sort, insertion_sort, quick_sort])
 def test_sorting_algorithms(sorting_function):
@@ -9,6 +14,7 @@ def test_sorting_algorithms(sorting_function):
     assert sorting_function([7]) == [7]
     assert sorting_function([3, 3, 3]) == [3, 3, 3]
     assert sorting_function([10, -2, 4, 0, 7, 1]) == [-2, 0, 1, 4, 7, 10]
+
 
 def test_invalid_input():
     with pytest.raises(TypeError):
