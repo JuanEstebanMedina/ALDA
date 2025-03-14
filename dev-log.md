@@ -67,6 +67,16 @@ To follow the TDD methodology, it is important to create the respective test bef
 
 Once the tests are completed, the next step is to implement the functionality and ensure that all tests pass.
 
+- Task 2: Experimental analysis algorithm plots - 3 or more sorting algorithms.
+
+
+To execute `sorting_experiments.py` use
+```sh
+python -m algorithm_analysis.experiments.sorting_experiments
+```
+
+
+
 ### Decisions Made
 - Decision 1: Description of the decision.
 - Decision 2: Description of the decision.
