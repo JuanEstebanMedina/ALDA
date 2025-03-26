@@ -56,7 +56,7 @@ Follow these steps to set up the environment and dependencies for any project in
 
 ## Professor
 
-- RAFAEL ALBERTO NIQUEFA VELASQUEZ - Escuela Colombiana de Ingeniería Julio Garavito
+- Rafael Alberto Niquefa Velasquez - Escuela Colombiana de Ingeniería Julio Garavito
 
 
 ## Development Guidelines

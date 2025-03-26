@@ -178,3 +178,7 @@ cython_debug/
 
 #makefile
 Makefile
+
+# Experiments
+/algorithm_analysis/experiments/results
+/algorithm_analysis/plots/results
