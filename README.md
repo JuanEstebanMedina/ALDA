@@ -8,17 +8,21 @@ The repository follows a structured organization to facilitate navigation and ma
 
 ```
 ALDA/
-│-- algorithm_analysis/
-│   │-- algorithms/          # Algorithm implementations
-│   │-- tests/               # Unit tests for Task 1
-|   |-- plots/               # Performance analysis visualizations
-│   │-- experiments/         # Complexity measurement scripts
-│   │-- requirements.txt     # Project dependencies
-│   │-- README.md            # algorithm-specific documentation
-│-- env/                     # Virtual environment
-│-- .gitignore               # Ignored files and directories
-│-- README.md                # General documentation
-│-- requirements.txt         # Dependencies (e.g., NumPy, Matplotlib)
+├── algorithm_analysis/
+│   ├── algorithms/          # Algorithm implementations
+│   ├── experiments/         # Complexity measurement scripts
+│   │   └── results/         # Saved experiment results
+│   ├── plots/               # Performance analysis visualizations
+│   │   └── results/         # Output plot images
+│   ├── tests/               # Unit tests
+│   ├── app.py               # Algorithm analysis execution
+│   └── README.md            # Algorithm-specific documentation
+├── env/                     # Virtual environment
+├── notebooks/               # Jupyter notebooks
+├── Scripts/                 # To run code and coverage
+├── .gitignore               # Ignored files and directories
+├── README.md                # General documentation
+└── requirements.txt         # Dependencies (e.g., NumPy, Matplotlib)
 ```
 
 ## Setting Up the Project
@@ -36,9 +40,13 @@ Follow these steps to set up the environment and dependencies for any project in
    ```
 
 3. **Activate the virtual environment**
-   - On Windows:
+   - On Windows (Command Prompt):
      ```sh
-     env\Scripts\activate
+     .\env\Scripts\activate
+     ```
+   - On Windows (PowerShell):
+     ```sh
+     .\env\Scripts\Activate.ps1
      ```
    - On macOS/Linux:
      ```sh
@@ -50,14 +58,42 @@ Follow these steps to set up the environment and dependencies for any project in
    pip install -r requirements.txt
    ```
 
+## Running Experiments
+To run the sorting experiments and generate plots, follow these steps:
+
+1. **Run the sorting experiments**
+   ```sh
+   python -m algorithm_analysis.experiments.sorting_experiments
+   ```
+
+2. **Generate plots**
+   ```sh
+   python -m algorithm_analysis.plots.sorting_plots
+   ```
+
+or just use the temporary script provided in `Scripts` directory
+```sh
+Scripts\run.bat
+```
+
+## Running Unit Tests
+To run the unit tests, use the following command:
+```sh
+pytest algorithm_analysis/tests/
+```
+
+Also, there is a script to see the coverage of the project:
+```sh
+Scripts\coverage.bat
+```
+
 ## Contributors
 
 - Juan Esteban Medina Rivas - Course Participant
 
 ## Professor
 
-- RAFAEL ALBERTO NIQUEFA VELASQUEZ - Escuela Colombiana de Ingeniería Julio Garavito
-
+- Rafael Alberto Niquefa Velasquez - Escuela Colombiana de Ingeniería Julio Garavito
 
 ## Development Guidelines
 - Follow best coding practices and maintain code readability.
@@ -66,7 +102,7 @@ Follow these steps to set up the environment and dependencies for any project in
   black .
   ```
 - Write meaningful commit messages and use branches for new features.
-- Ensure all unit tests pass before pushing changes.
+- Ensure all unit tests pass before pushing changes:
   ```sh
   pytest tests/
   ```
@@ -74,7 +110,6 @@ Follow these steps to set up the environment and dependencies for any project in
 ## Issues and Contributions
 - Report any issues in the GitHub issue tracker.
 - Pull requests should be reviewed before merging into the main branch.
-
 
 <!-- ## License
 This repository follows an open-source license (MIT/GPL/etc.). Refer to the `LICENSE` file for details. -->

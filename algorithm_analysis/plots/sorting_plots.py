@@ -1,12 +1,15 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+from ..algorithms import constants
 
 
 def plot_results():
     base_dir = os.path.dirname(os.path.abspath(__file__))
 
-    results_path = os.path.join(base_dir, "..", "experiments", "sorting_results.npz")
+    results_path = os.path.join(
+        base_dir, "..", "experiments", "results", "sorting_results.npz"
+    )
 
     data = np.load(results_path)
     sizes = data["sizes"]
@@ -14,7 +17,8 @@ def plot_results():
     plt.figure(figsize=(10, 6))
     for key in data.files:
         if key != "sizes":
-            plt.plot(sizes, data[key], marker="o", label=key)
+            times = data[key] / constants.TIME_MULTIPLIER
+            plt.plot(sizes, times, marker="o", label=key)
 
     plt.xlabel("Input Size")
     plt.ylabel("Execution Time (seconds)")
@@ -26,7 +30,7 @@ def plot_results():
     plt.legend()
     plt.grid()
 
-    plots_path = os.path.join(base_dir, "sorting_performance.png")
+    plots_path = os.path.join(base_dir, "results", "sorting_performance.png")
     plt.savefig(plots_path)
 
     plt.show()
