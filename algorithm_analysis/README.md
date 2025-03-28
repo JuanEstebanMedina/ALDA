@@ -6,9 +6,10 @@ This project focuses on the experimental analysis of different sorting algorithm
 
 ### Implemented Sorting Algorithms
 - **Bubble Sort**: A simple comparison-based algorithm with O(n²) complexity.
-- **Merge Sort**: A divide-and-conquer algorithm with O(n log n) complexity.
+- **Insertion Sort**: A straightforward algorithm with O(n²) complexity.
 - **Quick Sort**: An efficient sorting algorithm with an average complexity of O(n log n).
-- **Other algorithms may be included for additional comparisons.**
+- **Merge Sort**: A divide-and-conquer algorithm with O(n log n) complexity.
+- **Python's Built-in Sort**: Uses Timsort with O(n log n) complexity.
 
 ### Methodology
 1. **Data Generation**: Random datasets of different sizes are generated to evaluate algorithm performance.
@@ -28,20 +29,32 @@ algorithm_analysis/
 │── README.md               # Project documentation
 ```
 
-### How to Run
-1. **Install dependencies**
-   ```bash
-   poetry install  # If using poetry
-   pip install -r requirements.txt  # If using a requirements file
+
+## Running Experiments
+To run the sorting experiments and generate plots, follow these steps:
+
+- **Run the sorting experiments and generate plots**
+   ```sh
+   python -m algorithm_analysis.app --experiment sorting --sizes "min max step sample_size"
+   python -m algorithm_analysis.app --experiment sorting --sizes "1000 10001 1000 7" # Example
    ```
-2. **Run the sorting analysis**
-   ```bash
-   python algorithm_analysis/experiments/sorting_analysis.py
+
+- **Or just use the temporary script provided in `Scripts` directory**
+   ```sh
+   Scripts\run_sorting_analysis.bat
    ```
-3. **Run unit tests**
-   ```bash
-   pytest algorithm_analysis/tests/
-   ```
+
+## Running Unit Tests
+To run the unit tests, use the following command:
+```sh
+pytest algorithm_analysis/tests/
+```
+
+Also, there is a script to see the coverage of the project:
+```sh
+Scripts\coverage.bat
+```
+
 
 ### Expected Results
 - A set of plots showing the time complexity of different sorting algorithms across varying input sizes.
@@ -53,5 +66,5 @@ algorithm_analysis/
 - **Institution**: Escuela Colombiana de Ingeniería Julio Garavito
 
 ---
-More algorithms and experiments will be added as the project progresses.
+More algorithms and experiments could be added as the project progresses.
 

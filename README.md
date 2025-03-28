@@ -58,35 +58,6 @@ Follow these steps to set up the environment and dependencies for any project in
    pip install -r requirements.txt
    ```
 
-## Running Experiments
-To run the sorting experiments and generate plots, follow these steps:
-
-1. **Run the sorting experiments**
-   ```sh
-   python -m algorithm_analysis.experiments.sorting_experiments
-   ```
-
-2. **Generate plots**
-   ```sh
-   python -m algorithm_analysis.plots.sorting_plots
-   ```
-
-or just use the temporary script provided in `Scripts` directory
-```sh
-Scripts\run.bat
-```
-
-## Running Unit Tests
-To run the unit tests, use the following command:
-```sh
-pytest algorithm_analysis/tests/
-```
-
-Also, there is a script to see the coverage of the project:
-```sh
-Scripts\coverage.bat
-```
-
 ## Contributors
 
 - Juan Esteban Medina Rivas - Course Participant
@@ -110,6 +81,3 @@ Scripts\coverage.bat
 ## Issues and Contributions
 - Report any issues in the GitHub issue tracker.
 - Pull requests should be reviewed before merging into the main branch.
-
-<!-- ## License
-This repository follows an open-source license (MIT/GPL/etc.). Refer to the `LICENSE` file for details. -->
