@@ -11,24 +11,40 @@ This project focuses on the experimental analysis of different sorting algorithm
 - **Merge Sort**: A divide-and-conquer algorithm with O(n log n) complexity.
 - **Python's Built-in Sort**: Uses Timsort with O(n log n) complexity.
 
+## Searching Algorithm Comparison
+
+This project also includes the experimental analysis of different searching algorithms to compare their performance under various conditions.
+
+### Implemented Searching Algorithms
+- **Linear Search**: A simple search algorithm that checks each element in the list sequentially until the desired element is found or the list ends. It has a time complexity of O(n).
+- **Binary Search**: A logarithmic search algorithm for sorted lists with O(log n) complexity.
+- **Ternary Search**: A divide-and-conquer search algorithm for sorted lists with O(log₃ n) complexity.
+
 ### Methodology
 1. **Data Generation**: Random datasets of different sizes are generated to evaluate algorithm performance.
-2. **Execution & Benchmarking**: Each sorting algorithm is executed multiple times to measure execution time.
+2. **Execution & Benchmarking**: Each algorithm is executed multiple times to measure execution time.
 3. **Performance Visualization**: Execution times are plotted to compare efficiency across different input sizes.
 
 ### Repository Structure
 ```
 algorithm_analysis/
-│── algorithms/
-│   ├── sorting.py          # Implementations of sorting algorithms
-│── tests/
-│   ├── test_sorting.py     # Unit tests for sorting functions
-│── experiments/
-│   ├── sorting_analysis.py # Performance benchmarking and plotting
-│── plots/                  # Generated plots for analysis
-│── README.md               # Project documentation
+│-- algorithms/
+│   │   ├── sorting.py           # Sorting algorithm implementations
+│   │   └── searching.py         # Searching algorithm implementations
+│-- experiments/
+│   │   ├── sorting_experiments.py   # Experiments with sorting algorithms
+│   │   └── searching_experiments.py # Experiments with searching algorithms
+│-- plots/
+│   │   ├── sorting_plots.py     # Plot generation for sorting
+│   │   └── searching_plots.py   # Plot generation for searching
+│-- random_data/
+│   │   └── generator.py         # Random data generator
+│-- tests/
+│   │   ├── test_sorting.py      # Unit tests for sorting
+│   │   └── test_searching.py    # Unit tests for searching
+│-- app.py                       # Main entry point
+│-- README.md                    # Project documentation
 ```
-
 
 ## Running Experiments
 To run the sorting experiments and generate plots, follow these steps:
@@ -39,9 +55,16 @@ To run the sorting experiments and generate plots, follow these steps:
    python -m algorithm_analysis.app --experiment sorting --sizes "1000 10001 1000 7" # Example
    ```
 
-- **Or just use the temporary script provided in `Scripts` directory**
+- **Run the searching experiments and generate plots**
+   ```sh
+   python -m algorithm_analysis.app --experiment searching --sizes "min max step sample_size"
+   python -m algorithm_analysis.app --experiment searching --sizes "1000 10001 1000 7" # Example
+   ```
+
+- **Or just use the temporary scripts provided in the `Scripts` directory**
    ```sh
    Scripts\run_sorting_analysis.bat
+   Scripts\run_searching_analysis.bat
    ```
 
 ## Running Unit Tests
@@ -55,15 +78,14 @@ Also, there is a script to see the coverage of the project:
 Scripts\coverage.bat
 ```
 
-
 ### Expected Results
-- A set of plots showing the time complexity of different sorting algorithms across varying input sizes.
+- A set of plots showing the time complexity of different algorithms across varying input sizes.
 - Insight into the efficiency of each algorithm under different conditions.
 
 ### Contributions
 - **Contributor**: Juan Esteban Medina Rivas
 - **Professor**: Rafael Alberto Niquefa Velasquez
-- **Institution**: Escuela Colombiana de Ingeniería Julio Garavito
+- **Institution**: Universidad Escuela Colombiana de Ingeniería Julio Garavito
 
 ---
 More algorithms and experiments could be added as the project progresses.

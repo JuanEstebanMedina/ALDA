@@ -1,8 +1,12 @@
 import argparse
-from algorithm_analysis.experiments.sorting_experiments import save_experiment_results
-from algorithm_analysis.plots.sorting_plots import plot_results
-
-# from algorithm_analysis.experiments.search_experiments import save_search_results
+from algorithm_analysis.experiments.sorting_experiments import (
+    save_experiment_results as save_sort_experiment_results,
+)
+from algorithm_analysis.plots.sorting_plots import plot_results as plot_sort_results
+from algorithm_analysis.experiments.searching_experiments import (
+    save_experiment_results as save_search_results,
+)
+from algorithm_analysis.plots.searching_plots import plot_results as plot_search_results
 
 
 def parse_sizes_arg(s):
@@ -26,13 +30,13 @@ def run_menu():
         try:
             parts = user_input.replace(",", " ").split()
             min_size, max_size, step, samples = map(int, parts)
-            save_experiment_results(
+            save_sort_experiment_results(
                 minimum_size=min_size,
                 maximum_size=max_size,
                 step=step,
                 samples_by_size=samples,
             )
-            plot_results()
+            plot_sort_results()
         except ValueError:
             print("Invalid input. Please enter 4 numbers separated by space or comma.")
     else:
@@ -50,14 +54,8 @@ def main():
     parser.add_argument(
         "--experiment",
         type=str,
-        choices=["sorting", "search"],
+        choices=["sorting", "searching"],
         help="Experiment to run",
-    )
-    parser.add_argument(
-        "--output",
-        type=str,
-        default="experiments/results/sorting_results.npz",
-        help="Output file path",
     )
     parser.add_argument(
         "--sizes",
@@ -73,13 +71,25 @@ def main():
             case "sorting":
                 try:
                     min_size, max_size, step, samples = parse_sizes_arg(args.sizes)
-                    save_experiment_results(
+                    save_sort_experiment_results(
                         minimum_size=min_size,
                         maximum_size=max_size,
                         step=step,
                         samples_by_size=samples,
                     )
-                    plot_results()
+                    plot_sort_results()
+                except Exception as e:
+                    print(f"Invalid --sizes input: {e}")
+            case "searching":
+                try:
+                    min_size, max_size, step, samples = parse_sizes_arg(args.sizes)
+                    save_search_results(
+                        minimum_size=min_size,
+                        maximum_size=max_size,
+                        step=step,
+                        samples_by_size=samples,
+                    )
+                    plot_search_results()
                 except Exception as e:
                     print(f"Invalid --sizes input: {e}")
     else:
