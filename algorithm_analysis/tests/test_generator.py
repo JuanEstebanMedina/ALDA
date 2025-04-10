@@ -67,3 +67,19 @@ def test_random_colombian_address():
     assert isinstance(address, str)
     assert any(char.isdigit() for char in address)
     assert any(char.isalpha() for char in address)
+
+
+def test_random_existing_value_from_valid_list():
+    data = [10, 20, 30, 40]
+    val = generator.random_existing_value_from_list(data)
+    assert val in data
+
+
+def test_random_existing_value_from_empty_list():
+    with pytest.raises(ValueError):
+        generator.random_existing_value_from_list([])
+
+
+def test_random_existing_value_from_list_invalid_type():
+    with pytest.raises(TypeError):
+        generator.random_existing_value_from_list("not a list")
