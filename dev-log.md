@@ -40,12 +40,12 @@ Activate the virtual environment
 .\env\Scripts\activate
 ```
 
-Now, I can add all dependencies related to the project
+Now, I add all dependencies related to the project
 ```sh
 pip install pandas black numpy matplotlib pytest coverage
 ```
 
-Also, I had to install Anaconda and on the `Anaconda Prompt` use
+Also, install Anaconda and on the `Anaconda Prompt` use
 ```sh
 conda install ipykernel
 ```

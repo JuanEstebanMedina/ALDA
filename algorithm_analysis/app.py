@@ -7,6 +7,10 @@ from algorithm_analysis.experiments.searching_experiments import (
     save_experiment_results as save_search_results,
 )
 from algorithm_analysis.plots.searching_plots import plot_results as plot_search_results
+from algorithm_analysis.experiments.palindrome_experiments import (
+    save_experiment_results as save_palindrome_results,
+)
+from algorithm_analysis.plots.palindrome_plots import plot_palindrome_results
 
 
 def parse_sizes_arg(s):
@@ -21,7 +25,8 @@ def parse_sizes_arg(s):
 def run_menu():
     print("Welcome to Algorithm Analyzer")
     print("1. Run sorting experiments")
-    print("2. Exit")
+    print("2. Run palindrome experiments")
+    print("3. Exit")
 
     choice = input("Select an option: ")
 
@@ -39,6 +44,21 @@ def run_menu():
             plot_sort_results()
         except ValueError:
             print("Invalid input. Please enter 4 numbers separated by space or comma.")
+    elif choice == "2":
+        user_input = input("Enter min,max,step,samples (comma or space separated): ")
+        try:
+            parts = user_input.replace(",", " ").split()
+            min_size, max_size, step, samples = map(int, parts)
+            save_palindrome_results(
+                min_size=min_size,
+                max_size=max_size,
+                step=step,
+                samples_by_size=samples,
+                mode="mixed",
+            )
+            plot_palindrome_results(mode="mixed")
+        except ValueError:
+            print("Invalid input. Please enter 4 numbers separated by space or comma.")
     else:
         print("Bye!")
 
@@ -54,7 +74,7 @@ def main():
     parser.add_argument(
         "--experiment",
         type=str,
-        choices=["sorting", "searching"],
+        choices=["sorting", "searching", "palindrome"],
         help="Experiment to run",
     )
     parser.add_argument(
@@ -90,6 +110,19 @@ def main():
                         samples_by_size=samples,
                     )
                     plot_search_results()
+                except Exception as e:
+                    print(f"Invalid --sizes input: {e}")
+            case "palindrome":
+                try:
+                    min_size, max_size, step, samples = parse_sizes_arg(args.sizes)
+                    save_palindrome_results(
+                        min_size=min_size,
+                        max_size=max_size,
+                        step=step,
+                        samples_by_size=samples,
+                        mode="palindrome",
+                    )
+                    plot_palindrome_results(mode="palindrome")
                 except Exception as e:
                     print(f"Invalid --sizes input: {e}")
     else:
